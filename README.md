@@ -1,4 +1,4 @@
-# AWS-Docker-Apache_and_Flask
+# AWS-Docker-Apache_and_Django
 
 ![](https://private-user-images.githubusercontent.com/108736814/288289725-829bc2b6-95a7-479e-84a6-cd648847dfd1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTEiLCJleHAiOjE3MDE4NDA1MDksIm5iZiI6MTcwMTg0MDIwOSwicGF0aCI6Ii8xMDg3MzY4MTQvMjg4Mjg5NzI1LTgyOWJjMmI2LTk1YTctNDc5ZS04NGE2LWNkNjQ4ODQ3ZGZkMS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBSVdOSllBWDRDU1ZFSDUzQSUyRjIwMjMxMjA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDIzMTIwNlQwNTIzMjlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03MDE1NTI4MmQwZTZmN2EyZDNjMmYwOTI1MzI2Njc2MGYwZTVkYjcwNjZjOTgwOWU1Zjg0ZGI3Y2MzYjljMWIyJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.kCmuLxeG-14_V1p_2eu5BM9qriOIye-vDMIwAGUCUFM)
 
@@ -7,6 +7,19 @@
 解説記事はこちら
 
 https://hamaruki.com/deploying-a-flask-application-using-docker-containers-and-apache-on-aws/
+
+
+## memo
+
+```
+sudo docker compose up --build
+sudo docker compose exec django-app /bin/bash
+python3 manage.py startapp dashpage
+
+docker-compose run django-app django-admin.py startproject composeexample .
+docker-compose run django-app manage.py startapp dashpage .
+
+```
 
 ## 必要なコンポーネント
 - Docker: コンテナ化技術を用いてアプリケーションの環境を構築します。
