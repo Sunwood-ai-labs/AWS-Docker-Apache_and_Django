@@ -1,17 +1,23 @@
 version: '3'
 
 services:
-  flask-app:
+  db:
+    image: postgres
+  django-app:
     build:
-      context: ./flask
+      context: ./django
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
     volumes:
-      - ./flask:/usr/src/app
-    environment:
-      - FLASK_RUN_HOST=0.0.0.0
-      - FLASK_APP=app.py
+      - ./django:/usr/src/app
+    
+    command: python3 manage.py runserver 0.0.0.0:5000
+    depends_on:
+      - db
+    # environment:
+    #   - FLASK_RUN_HOST=0.0.0.0
+    #   - FLASK_APP=app.py
 
   apache:
     image: httpd
@@ -23,5 +29,4 @@ services:
     depends_on:
       - flask-app
     volumes:
-      - ./apache/my-httpd.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
       - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
